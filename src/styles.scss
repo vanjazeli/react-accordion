@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
+$white: #fff;
+$light-gray: #f4f4f4;
+
 * {
 	margin: 0;
 	padding: 0;
@@ -8,4 +11,23 @@
 
 #body {
 	font-family: 'Inter', sans-serif;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	padding-top: 5vw;
+	background-color: $light-gray;
+}
+
+.holder {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 20px;
+	list-style: none;
+	> :not(:last-child) {
+		margin-bottom: 24px;
+	}
+}
+
+.holder__heading {
+	margin-bottom: 12px;
 }

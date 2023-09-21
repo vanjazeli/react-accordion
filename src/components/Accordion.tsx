@@ -2,9 +2,10 @@ import { AccordionItem } from '../types/AccordionItem';
 
 type AccordionProps = {
 	items?: AccordionItem[];
+	type?: string;
 };
 
-const Accordion = ({ items }: AccordionProps) => {
+const Accordion = ({ items, type }: AccordionProps) => {
 	return (
 		<ul className="accordion">
 			{items?.map((item, itemIndex) => (
