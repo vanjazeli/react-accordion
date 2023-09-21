@@ -30,6 +30,15 @@ button {
 	font-family: $font-default;
 }
 
+::-webkit-scrollbar {
+	width: 0;
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: transparent;
+}
+
 #body {
 	font-family: $font-default;
 	min-height: 100vh;
@@ -37,25 +46,20 @@ button {
 	justify-content: center;
 	padding: 5vw 0;
 	background-color: $light-gray;
+	scrollbar-width: none;
 }
 
-.holder {
+.wrap {
 	max-width: 800px;
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 20px;
 	list-style: none;
-	> :not(:last-child) {
-		margin-bottom: 64px;
-	}
-}
-
-.holder__heading {
-	margin-bottom: 12px;
 }
 
 .accordion {
 	background-color: $white;
+	box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.07);
 	> :not(:last-child) {
 		border-bottom: 1px solid $mid-gray;
 	}
@@ -82,6 +86,7 @@ button {
 	}
 	.accordion__description-holder {
 		grid-template-rows: 1fr;
+		opacity: 1;
 	}
 }
 
@@ -90,6 +95,7 @@ button {
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
+	gap: 20px;
 	cursor: pointer;
 }
 
@@ -97,9 +103,6 @@ button {
 	font-size: 32px;
 	line-height: 120%;
 	font-weight: bold;
-	@media screen and (max-width: 767px) {
-		font-size: 24px;
-	}
 }
 
 .accordion__icon {
@@ -151,8 +154,9 @@ button {
 .accordion__description-holder {
 	display: grid;
 	grid-template-rows: 0fr;
+	opacity: 0;
 	transition: $transition-primary;
-	transition-property: grid-template-rows;
+	transition-property: grid-template-rows opacity;
 }
 
 .accordion__description-wrap {
