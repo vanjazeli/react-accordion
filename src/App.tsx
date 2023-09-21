@@ -4,8 +4,7 @@ const App = () => {
 	const accordionItems = [
 		{
 			title: 'Alright, but what exactly do you do?',
-			description:
-				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula sapien at justo lacinia, eget cursus purus aliquet. Nulla facilisi. Proin congue urna ut sem vestibulum, ac dignissim velit eleifend. Nullam venenatis, purus sit amet condimentum venenatis, quam turpis varius augue.',
+			description: 'Timperdiet gravida scelerisque odio nunc. Eget felis, odio bibendum quis eget sit lorem donec diam. Volutpat sed orci turpis sit dolor est a pretium eget. Vitae turpis orci vel tellus cursus lorem vestibulum quis eu. Ut commodo, eget lorem venenatis urna.',
 		},
 		{
 			title: `I don't need a brand strategist but I need help executing an upcoming campaign. Can we still work together?`,
@@ -28,14 +27,6 @@ const App = () => {
 		<ul className="holder">
 			<li className="holder__item">
 				<h2 className="holder__heading">No animation</h2>
-				<Accordion items={accordionItems} />
-			</li>
-			<li className="holder__item">
-				<h2 className="holder__heading">Vanilla animation</h2>
-				<Accordion items={accordionItems} />
-			</li>
-			<li className="holder__item">
-				<h2 className="holder__heading">GSAP animation</h2>
 				<Accordion items={accordionItems} />
 			</li>
 		</ul>
