@@ -6,6 +6,8 @@ $light-gray: #f4f4f4;
 $mid-gray: #c3c3c3;
 $black: #000;
 
+$pale-blue: rgb(241, 240, 246);
+
 $font-default: 'Inter', sans-serif;
 
 * {
@@ -59,6 +61,22 @@ button {
 .accordion__item {
 	position: relative;
 	padding: 56px 60px 50px 169px;
+}
+
+.accordion__item--active {
+	background-color: $pale-blue;
+	.accordion__icon {
+		background-color: $black;
+		&::before {
+			background-color: $white;
+		}
+		&::after {
+			display: none;
+		}
+	}
+	.accordion__description-holder {
+		display: unset;
+	}
 }
 
 .accordion__button {
