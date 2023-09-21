@@ -3,14 +3,26 @@
 $white: #fff;
 $light-gray: #f4f4f4;
 
+$font-default: 'Inter', sans-serif;
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
+ul {
+	list-style: none;
+}
+
+button {
+	background: none;
+	border: none;
+	font-family: $font-default;
+}
+
 #body {
-	font-family: 'Inter', sans-serif;
+	font-family: $font-default;
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
