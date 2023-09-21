@@ -4,11 +4,14 @@ $white: #fff;
 $pale-gray: #f3f5f6;
 $light-gray: #f4f4f4;
 $mid-gray: #c3c3c3;
+$dark-gray: #242424;
 $black: #000;
 
-$pale-blue: rgb(241, 240, 246);
+$pale-blue: rgb(211, 209, 222);
 
 $font-default: 'Inter', sans-serif;
+
+$transition-primary: 0.5s ease-in-out;
 
 * {
 	margin: 0;
@@ -37,7 +40,7 @@ button {
 }
 
 .holder {
-	max-width: 1220px;
+	max-width: 800px;
 	width: 100%;
 	margin: 0 auto;
 	padding: 0 20px;
@@ -61,21 +64,24 @@ button {
 .accordion__item {
 	position: relative;
 	padding: 56px 60px 50px 169px;
+	@media screen and (max-width: 767px) {
+		padding: 20px;
+	}
 }
 
 .accordion__item--active {
-	background-color: $pale-blue;
 	.accordion__icon {
 		background-color: $black;
+		transform: rotate(360deg);
 		&::before {
 			background-color: $white;
 		}
 		&::after {
-			display: none;
+			opacity: 0;
 		}
 	}
 	.accordion__description-holder {
-		display: unset;
+		grid-template-rows: 1fr;
 	}
 }
 
@@ -91,17 +97,24 @@ button {
 	font-size: 32px;
 	line-height: 120%;
 	font-weight: bold;
+	@media screen and (max-width: 767px) {
+		font-size: 24px;
+	}
 }
 
 .accordion__icon {
+	isolation: isolate;
 	position: relative;
 	height: 48px;
 	min-width: 48px;
 	background-color: $pale-gray;
 	border-radius: 100vmax;
+	transition: $transition-primary;
+	transition-property: transform;
 	&::before {
 		content: '';
 		position: absolute;
+		z-index: 2;
 		width: 18px;
 		height: 3px;
 		background-color: $black;
@@ -118,18 +131,40 @@ button {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
+		transition: $transition-primary;
+		transition-property: opacity;
+	}
+	@media screen and (max-width: 767px) {
+		height: 32px;
+		min-width: 32px;
+		&::before {
+			width: 14px;
+			height: 2px;
+		}
+		&::after {
+			width: 2px;
+			height: 14px;
+		}
 	}
 }
 
 .accordion__description-holder {
-	display: none;
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: $transition-primary;
+	transition-property: grid-template-rows;
+}
+
+.accordion__description-wrap {
+	overflow: hidden;
 }
 
 .accordion__description {
-	margin-top: 24px;
+	padding-top: 24px;
 	font-size: 20px;
 	line-height: 140%;
-	color: $mid-gray;
+	color: $dark-gray;
+	background-color: $white;
 }
 
 .accordion__number {
@@ -140,4 +175,7 @@ button {
 	font-size: 48px;
 	line-height: 120%;
 	color: $mid-gray;
+	@media screen and (max-width: 767px) {
+		display: none;
+	}
 }

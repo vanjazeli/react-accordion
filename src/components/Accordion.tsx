@@ -39,7 +39,9 @@ const Accordion = ({ items }: AccordionProps) => {
 						<span className="accordion__icon"></span>
 					</button>
 					<div className="accordion__description-holder">
-						<p className="accordion__description">{item.description}</p>
+						<div className="accordion__description-wrap">
+							<p className="accordion__description">{item.description}</p>
+						</div>
 					</div>
 				</li>
 			))}
