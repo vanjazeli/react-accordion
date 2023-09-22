@@ -1,6 +1,6 @@
 import { AccordionItem } from '../types/AccordionItem';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 type AccordionProps = {
 	items?: AccordionItem[];
@@ -51,7 +51,40 @@ const Accordion = ({ items, type }: AccordionProps) => {
 		);
 	}
 	if (type === 2) {
-		return <>Exaple using state</>;
+		const [activeIndex, setActiveIndex] = useState<number | null>(null);
+
+		const clickHandler = (itemIndex: number) => {
+			if (activeIndex !== itemIndex) {
+				setActiveIndex(itemIndex);
+				return;
+			}
+			setActiveIndex(null);
+		};
+
+		return (
+			<ul className="accordion">
+				{items?.map((item, itemIndex) => (
+					<li className={activeIndex === itemIndex ? `accordion__item accordion__item--active` : 'accordion__item'} key={itemIndex}>
+						<span className="accordion__number">{itemIndex + 1 < 10 ? `0${itemIndex + 1}` : itemIndex + 1}</span>
+						<button
+							className="accordion__button"
+							type="button"
+							onClick={() => {
+								clickHandler(itemIndex);
+							}}
+						>
+							<span className="accordion__title">{item.title}</span>
+							<span className="accordion__icon"></span>
+						</button>
+						<div className="accordion__description-holder">
+							<div className="accordion__description-wrap">
+								<p className="accordion__description">{item.description}</p>
+							</div>
+						</div>
+					</li>
+				))}
+			</ul>
+		);
 	}
 };
 
