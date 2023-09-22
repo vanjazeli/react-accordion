@@ -55,6 +55,13 @@ button {
 	margin: 0 auto;
 	padding: 0 20px;
 	list-style: none;
+	> :not(:last-child) {
+		margin-bottom: 32px;
+	}
+}
+
+.wrap__heading {
+	margin-bottom: 16px;
 }
 
 .accordion {
